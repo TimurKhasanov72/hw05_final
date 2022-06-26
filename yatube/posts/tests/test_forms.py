@@ -6,8 +6,9 @@ from django.contrib.auth import get_user_model
 from django.test import Client, TestCase, override_settings
 from django.urls import reverse
 
-from ..models import Post, Group
 from test_utils import get_test_image
+
+from ..models import Group, Post
 
 User = get_user_model()
 

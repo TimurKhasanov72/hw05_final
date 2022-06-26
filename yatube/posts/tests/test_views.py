@@ -1,18 +1,16 @@
 import shutil
 import tempfile
 
-from django.conf import settings
 from django import forms
+from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.core.cache import cache
 from django.test import Client, TestCase, override_settings
 from django.urls import reverse
-from django.core.cache import cache
 
-from test_utils import (
-    assert_is_instanse_fields,
-    assert_in, get_test_image,
-    search_post_by_text
-)
+from test_utils import (assert_in, assert_is_instanse_fields, get_test_image,
+                        search_post_by_text)
+
 from ..models import Follow, Group, Post
 
 User = get_user_model()

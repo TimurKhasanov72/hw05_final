@@ -1,11 +1,11 @@
 from dataclasses import Field
 from typing import Dict
 
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.db.models import QuerySet
 from django.forms import Field
 from django.http import HttpResponse
 from django.test import TestCase
-from django.core.files.uploadedfile import SimpleUploadedFile
-from django.db.models import QuerySet
 
 from posts.models import Post
 

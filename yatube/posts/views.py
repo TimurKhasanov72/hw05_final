@@ -156,10 +156,20 @@ def profile_follow(request, username):
     # Подписаться на автора
     author = get_object_or_404(User, username=username)
 
-    Follow.objects.create(
-        user=request.user,
-        author=author,
-    )
+    # проверяем, что не подписываемся на самого себя
+    if (request.user.username != username):
+
+        # проверяем, что еще нет такой подписки
+        check_following = Follow.objects.filter(
+            user=request.user,
+            author=author,
+        ).exists()
+
+        if check_following is False:
+            Follow.objects.create(
+                user=request.user,
+                author=author,
+            )
     return redirect('posts:profile', username)
 
 
