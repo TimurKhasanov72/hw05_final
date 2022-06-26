@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Технологии{% endblock %}
+{% block content %}
+{% comment %} Колонки с отступом сверху и снизу {% endcomment %}
+<div class="row">
+  <h1>Вот что я умею</h1>
+  <aside class="col-12 col-md-6">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        Python
+      </li>
+      <li class="list-group-item">
+        Backend-фреймворк: Django
+      </li>
+      <li class="list-group-item">
+        JavaScript frontend-фреймворк: Vue
+      </li>
+      <li class="list-group-item">
+        Machine Learning: pandas, scikit, catboost
+      </li>
+      <li class="list-group-item">
+        UI: Vuetify, apexchart.js, plotly.js
+      </li>
+      <li class="list-group-item">
+        Репозиторий: <a href="https://github.com/TimurKhasanov72">ссылка</a> на github
+      </li>
+    </ul>
+  </aside>
+</div>
+{% endblock %} 

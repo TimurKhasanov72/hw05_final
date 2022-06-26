@@ -1,0 +1,4 @@
+{% for post in posts %}
+    {% include 'posts/includes/post_info.html' with post=post  %}
+    {% if not forloop.last %}<hr>{% endif %}
+{% endfor %}

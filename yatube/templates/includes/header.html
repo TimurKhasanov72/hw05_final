@@ -1,0 +1,26 @@
+{% load static %}
+<header>
+  <nav class="navbar navbar-light" style="background-color: lightskyblue">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'posts:index' %}">
+        <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        <span style="color:red">Ya</span>tube
+      </a>
+      <ul class="nav nav-pills">
+        {% include 'includes/header_link.html' with text='Об авторе' path='about:author' %}
+        {% include 'includes/header_link.html' with text='Технологии' path='about:tech' %}
+        {% if user.is_authenticated %}
+          {% include 'includes/header_link.html' with text='Новая запись' path='posts:post_create' %}
+          {% include 'includes/header_link.html' with text='Сбросить пароль' path='users:password_reset' %}
+          {% include 'includes/header_link.html' with text='Выйти' path='users:logout' %}
+          <li>
+            Пользователь: {{ user.username }}
+          </li>
+          {% else %}
+          {% include 'includes/header_link.html' with text='Войти' path='users:login' %}
+          {% include 'includes/header_link.html' with text='Регистрация' path='users:signup' %}
+        {% endif %}
+      </ul>
+    </div>
+  </nav>      
+</header> 
