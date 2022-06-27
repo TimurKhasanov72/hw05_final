@@ -298,8 +298,8 @@ class PostPagesTests(TestCase):
             'index.html НЕ поменялся после удаления кэша'
         )
 
-    def test_authorized_client_can_follow_and_unfollow(self):
-        '''Авторизованный пользователь может подписываться и отписываться.'''
+    def test_authorized_client_can_follow(self):
+        '''Авторизованный пользователь может подписываться.'''
         # подписываемся
         response = self.authorized_client.get(
             reverse('posts:profile_follow', kwargs={
@@ -317,6 +317,15 @@ class PostPagesTests(TestCase):
             user=self.user,
             author=self.user2
         ))
+
+    def test_authorized_client_can_unfollow(self):
+        '''Авторизованный пользователь может отписываться.'''
+        # сначала подписываемся
+        self.authorized_client.get(
+            reverse('posts:profile_follow', kwargs={
+                'username': self.user2.username
+            })
+        )
 
         # отписываемся
         response = self.authorized_client.get(

@@ -44,8 +44,12 @@ def profile(request, username):
 
     user = get_object_or_404(User, username=username)
 
-    following = False
-    if (request.user.is_authenticated) and (user != request.user):
+    following = (
+        (request.user.is_authenticated)
+        and (user != request.user)
+    )
+
+    if following:
         following = Follow.objects.filter(
             user=request.user,
             author=user,
