@@ -161,7 +161,7 @@ def profile_follow(request, username):
     author = get_object_or_404(User, username=username)
 
     # проверяем, что не подписываемся на самого себя
-    if (request.user.username != username):
+    if request.user != author:
 
         # проверяем, что еще нет такой подписки
         check_following = Follow.objects.filter(
